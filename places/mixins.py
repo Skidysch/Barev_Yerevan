@@ -1,6 +1,6 @@
 from django.core.cache import cache
 
-from .forms import ContactForm
+# from .forms import ContactForm
 from .models import Category
 
 
@@ -13,13 +13,12 @@ class ContextMixin:
         if not categories:
             categories = Category.objects.all()
             cache.set('categories', categories, 60)
-        form = cache.get('form')
-        if not form:
-            form = ContactForm()
-            cache.set('form', form, 60)
-        
+        # form = cache.get('form')
+        # if not form:
+        #     form = ContactForm()
+        #     cache.set('form', form, 60)
+
         context['categories'] = categories
-        context['form'] = form
+        # context['form'] = form
 
         return context
-        
