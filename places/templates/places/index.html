@@ -1,0 +1,180 @@
+{% extends 'places/layouts/default.html' %}
+{% load static %}
+
+{% block body %}
+
+<!-- Hikes -->
+<section class="hikes">
+  <img class="shapes__top" src="{% static 'places/images/shape-top.png' %}" alt="">
+  <div class="hikes__content">
+    
+    <div class="container">
+
+      <div class="hikes__title">Visit best places<br>in Yerevan</div>
+
+      <div class="hikes__suptitle">Your journey starts right now</div>
+
+      <button class="btn btn--secondary" type="button">Explore</button>
+
+    </div>
+    <img class="shapes__bottom" src="{% static 'places/images/shape-bottom.png' %}" alt="">
+  
+  </div>
+</section>
+
+<!-- Cases -->
+<section class="cases">
+
+  <div class="container">
+
+    <div class="container container--sm container--center">
+      <div class="cases__header">LET´S go</div>
+      <div class="cases__intro"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p></div>
+    </div>
+
+    <div class="cases__list">
+
+      <div class="cases__item">
+
+          <div class="cases__preview">
+            <a href="{% url 'post' %}">
+              <img class="cases__image" src="{% static 'places/images/cases/cases-1.jpg' %}" alt="">
+            </a>
+          </div>
+
+          <div class="cases__content">
+
+            <a class="cases__title" href="{% url 'post' %}">Lorem ipsum</a>
+
+            <div class="cases__text">
+              <p>Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
+            </div>
+
+          </div>
+
+      </div>
+
+      <div class="cases__item">
+
+          <div class="cases__preview">
+            <a href="{% url 'post' %}">
+              <img class="cases__image" src="{% static 'places/images/cases/cases-2.jpg' %}" alt="">
+            </a>
+          </div>
+
+          <div class="cases__content">
+
+            <a class="cases__title" href="{% url 'post' %}">Lorem ipsum</a>
+
+            <div class="cases__text">
+              <p>Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
+            </div>
+
+          </div>
+
+      </div>
+
+      <div class="cases__item">
+
+        <div class="cases__preview">
+          <a href="{% url 'post' %}">
+            <img class="cases__image" src="{% static 'places/images/cases/cases-3.jpg' %}" alt="">
+          </a>
+        </div>
+
+        <div class="cases__content">
+
+          <a class="cases__title" href="{% url 'post' %}">Lorem ipsum</a>
+
+          <div class="cases__text">
+            <p>Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div><!-- /.cases__list -->
+
+    <a href="#" class="btn">Show More</a>
+
+  </div><!-- /.container-->
+
+</section><!-- /.cases -->
+
+<!-- Promo -->
+<section class="promo">
+
+  <div class="promo__item">
+    <img class="promo__image" src="{% static 'places/images/promo/promo-1.jpg' %}" alt="">
+  </div>
+
+  <div class="promo__item promo__item--primary has-text">
+
+    <div class="promo__title">
+      Discount up to
+      50% All Excursions
+    </div>
+
+    <div class="promo__text">
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat </p>
+    </div>
+
+    <a class="btn btn--secondary" href="#">Read More</a>
+
+  </div>
+
+  <div class="promo__item promo__item--secondary has-text ">
+    <div class="promo__title">January’s Promo: Buy 1 Get 1 Free!</div>
+
+    <div class="promo__text"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat </p></div>
+
+    <a class="btn btn--secondary" href="#">Read More</a>
+  </div>
+
+  <div class="promo__item">
+    <img class="promo__image" src="{% static 'places/images/promo/promo-2.jpg' %}" alt="">
+  </div>
+
+</section><!-- /.promo -->
+
+<!-- Contact -->
+<div class="contact">
+
+  <img class="shapes__top" src="{% static 'places/images/shape-top.png' %}" alt="">
+
+  <div class="container container--sm">
+      <div class="contact__content">
+
+          <div class="contact__title">
+              Contact us
+          </div>
+
+          <div class="contact__text">
+            If you have some ideas about improving our work, send us a message.
+          </div>
+
+          <form class="form">
+            
+            <div class="form__group">
+              <input class="form__input" type="text" placeholder="Your name">
+            </div>
+
+            <div class="form__group">
+              <input class="form__input" type="email" placeholder="Your Email">
+            </div>
+            
+            <div class="form__group">
+              <textarea class="form__input form__input--textarea" type="text" placeholder="Leave your message here" data-autoresize></textarea>
+              <button class="btn btn--black btn--sm" type="submit">Send</button>
+            </div>
+
+          </form>
+
+      </div>
+      <img class="shapes__bottom" src="{% static 'places/images/shape-bottom.png' %}" alt="">
+  </div>
+
+</div>
+
+{% endblock body %}

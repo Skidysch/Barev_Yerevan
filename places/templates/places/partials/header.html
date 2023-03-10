@@ -1,0 +1,70 @@
+{% load static %}
+
+<div class="container">
+  <div class="header__inner">
+
+    <div class="header__logo">
+      <a href="{% url 'home' %}">
+        <img src="{% static 'places/images/header/logo.png' %}" alt="">
+      </a>
+    </div>
+
+    <div class="header__nav">
+
+      <nav class="nav">
+        <ul class="nav__list">
+
+          <li class="nav__item">
+            <a class="nav__link has-subnav" href="#">Categories</a>
+
+            <ul class="subnav">
+
+              <li class="subnav__item">
+                <a class="subnav__link" href="#">Category 1</a>
+              </li>
+
+              <li class="subnav__item">
+                <a class="subnav__link" href="#">Category 2</a>
+              </li>
+
+              <li class="subnav__item">
+                <a class="subnav__link" href="#">Category 3</a>
+              </li>
+            
+            </ul>
+
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link" href="#">Blog</a>
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link" href="#" data-modal="contact-modal">Contact Us</a>
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link has-subnav" href="#">Profile</a>
+
+            <ul class="subnav">
+              <li class="subnav__item">
+                <a class="subnav__link" href="{% url 'signin' %}">Sign in</a>
+              </li>
+              <li class="subnav__item">
+                <a class="subnav__link" href="{% url 'signup' %}">Sign up</a>
+              </li>
+            </ul>
+
+          </li>
+
+        </ul>
+      </nav>
+
+      <form class="search" action="{% url 'search' %}" method="get">
+        <input class="search__input" type="text" placeholder="Search">
+      </form>
+
+    </div><!-- /.header__nav -->
+  
+  </div><!-- /.header__inner -->
+</div><!-- /.container -->
