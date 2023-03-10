@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="modal" id="contact-modal">
+  <div class="modal__content">
+
+    <button class="modal__close" type="button">
+      <img src="{% static 'places/images/close.svg' %}" alt="Закрыть">
+    </button>
+    
+    <div class="contact">
+
+      <img class="shapes__top" src="{% static 'places/images/shape-top.png' %}" alt="">
+
+      <div class="container container--sm">
+          <div class="contact__content">
+
+              <div class="contact__title">
+                  Contact us
+              </div>
+
+              <div class="contact__text">
+                If you have some ideas about improving our work, send us a message.
+              </div>
+
+              <form class="form">
+
+                <div class="form__group">
+                  <input class="form__input" type="text" placeholder="Your name">
+                </div>
+                
+                <div class="form__group">
+                  <input class="form__input" type="email" placeholder="Your Email">
+                </div>
+                
+                <div class="form__group">
+                  <textarea class="form__input form__input--textarea" type="text" placeholder="Leave your message here" data-autoresize></textarea>
+                  <button class="btn btn--black btn--sm" type="submit">Send</button>
+                </div>
+
+              </form>
+
+          </div>
+          <img class="shapes__bottom" src="{% static 'places/images/shape-bottom.png' %}" alt="">
+      </div>
+
+    </div>
+  </div>
+</div>

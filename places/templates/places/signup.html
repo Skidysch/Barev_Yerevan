@@ -1,0 +1,43 @@
+{% extends 'layouts/places/default.html' %}
+
+{% block body}
+
+<div class="bg bg--hikes">
+  <div class="container container--sm container--secondary container--rounded">
+    <div class="page__title page__title--center">Signing up</div>
+
+    <form class="form form--auth" action="/" method="post">
+      
+      <div class="form__group form__group--sm">
+        <input class="form__input" type="text" placeholder="Your name">
+      </div>
+
+      <div class="form__group form__group--sm">
+          <input class="form__input" type="email" placeholder="Your e-mail">
+      </div>
+
+      <div class="form__group form__group--sm">
+          <input class="form__input" type="password" placeholder="Password">
+      </div>
+
+      <div class="form__group form__group--sm">
+        <input class="form__input" type="password" placeholder="Confirm password">
+      </div>
+
+      <div class="form__footer form__footer--center">
+        <button class="btn btn--primary btn--sm" type="submit">Sign up</button>
+
+        <ul class="form__footer-list">
+          <li>
+            <a href="{% url 'signin' %}">Sign in</a>
+          </li>
+          <li>
+            <a href="{% url 'reset' %}">Forgot password?</a>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock body %}

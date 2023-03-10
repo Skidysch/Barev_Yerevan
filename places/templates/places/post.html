@@ -1,0 +1,52 @@
+{% extends 'places/layouts/default.html' %}
+{% load static %}
+
+{% block body %}
+
+<article class="post">
+  <div class="container container--sm container--primary container--rounded">
+    <div class="post__inner">
+
+      <div class="post__actions">
+        <a href="{% url 'home' %}">Back</a>
+        <a href="#" data-modal="share-modal">Share</a>
+      </div>
+
+      <div class="post__header post__header--preview">
+        <img class="post__preview" src="{% static 'places/images/cases/cases-1.jpg' %}" alt="">
+        <h1 class="post__title">Post title</h1>
+      </div>
+
+      <div class="post__content">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam id in harum possimus voluptatem dolore vitae assumenda ipsam deleniti. Placeat quaerat accusantium praesentium autem provident cum maxime amet quam numquam.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam id in harum possimus voluptatem dolore vitae assumenda ipsam deleniti. Placeat quaerat accusantium praesentium autem provident cum maxime amet quam numquam.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam id in harum possimus voluptatem dolore vitae assumenda ipsam deleniti. Placeat quaerat accusantium praesentium autem provident cum maxime amet quam numquam.</p>
+
+      </div><!-- /.post__content -->
+
+      <div class="related">
+        <h3 class="post__subtitle">Интересно почитать</h3>
+
+        <ul class="related__list">
+
+          <li class="related__list-item">
+            <h4 class="related__list-title">
+              <a href="#">Post 2</a>
+            </h4>
+          </li>
+
+          <li class="related__list-item">
+            <h4 class="related__list-title">
+              <a href="#">Post 3</a>
+            </h4>
+          </li>
+
+        </ul>
+
+      </div><!-- /.related -->
+
+    </div>
+  </div>
+</article><!-- /.post -->
+
+{% endblock body %}
