@@ -1,32 +1,42 @@
-{% extends 'layouts/places/default.html' %}
+{% extends 'places/layouts/default.html' %}
 
-{% block body}
+{% block body %}
 
 <div class="bg bg--hikes">
   <div class="container container--sm container--secondary container--rounded">
     <div class="page__title page__title--center">Signing in</div>
 
-    <form class="form form--auth" action="/" method="post">
+    <form class="form form--auth" method="post">
+      {% csrf_token %}
+      <div>{{ form.non_field_errors }}</div>
+      
+      {% for f in form %}
+      
+        <div class="form__group form__group--sm">
+          {{ f }}
+        </div>
 
-      <div class="form__group form__group--sm">
-          <input class="form__input" type="email" placeholder="Your e-mail">
-      </div>
+      {% endfor %}
 
-      <div class="form__group form__group--sm">
+      <!-- <div class="form__group form__group--sm">
           <input class="form__input" type="password" placeholder="Password">
-      </div>
+      </div> -->
 
       <div class="form__footer form__footer--center">
+        
         <button class="btn btn--primary btn--sm" type="submit">Sign in</button>
 
         <ul class="form__footer-list">
           <li>
             <a href="{% url 'signup' %}">Sign up</a>
           </li>
-          <li>
+
+          <!-- Return after reset function is made -->
+          <!-- <li>
             <a href="{% url 'reset' %}">Forgot password?</a>
-          </li>
+          </li> -->
         </ul>
+
       </div>
     </form>
   </div>
