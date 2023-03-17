@@ -13,7 +13,6 @@
       {% include 'places/partials/header.html' %}
     </header>
 
-
     <!-- Body-->
     <main class="main">
       {% block body %}
@@ -31,7 +30,7 @@
   {% include 'places/partials/contact-modal.html' %}
 
   <!-- JS -->
-  <script src="places/js/app.js"></script>
+  <script src="{% static 'places/js/app.js' %}"></script>
 
 </body>
 </html>

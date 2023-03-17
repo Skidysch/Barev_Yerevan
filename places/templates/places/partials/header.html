@@ -19,17 +19,13 @@
 
             <ul class="subnav">
 
-              <li class="subnav__item">
-                <a class="subnav__link" href="#">Category 1</a>
-              </li>
+              {% for c in categories %}
 
-              <li class="subnav__item">
-                <a class="subnav__link" href="#">Category 2</a>
-              </li>
+                <li class="subnav__item">
+                  <a class="subnav__link" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                </li>
 
-              <li class="subnav__item">
-                <a class="subnav__link" href="#">Category 3</a>
-              </li>
+              {% endfor %}
             
             </ul>
 
@@ -47,21 +43,46 @@
             <a class="nav__link has-subnav" href="#">Profile</a>
 
             <ul class="subnav">
-              <li class="subnav__item">
-                <a class="subnav__link" href="{% url 'signin' %}">Sign in</a>
-              </li>
-              <li class="subnav__item">
-                <a class="subnav__link" href="{% url 'signup' %}">Sign up</a>
-              </li>
+              
+              {% if request.user.is_authenticated %}
+
+                <li class="subnav__item">
+                  <a class="subnav__link" href="#">{{ user.username|capfirst }}</a>
+                </li>
+
+                <li class="subnav__item">
+                  <a class="subnav__link" href="{% url 'chuser' %}">Change user</a>
+                </li>
+                
+                <li class="subnav__item">
+                  <a class="subnav__link" href="{% url 'signout' %}">Sign out</a>
+                </li>
+
+              {% else %}
+
+                <li class="subnav__item">
+                  <a class="subnav__link" href="{% url 'signin' %}">Sign in</a>
+                </li>
+
+                <li class="subnav__item">
+                  <a class="subnav__link" href="{% url 'signup' %}">Sign up</a>
+                </li>
+
+              {% endif %}
+
             </ul>
 
           </li>
 
-        </ul>
-      </nav>
+        </ul><!-- /.nav__list -->
+      </nav><!-- /.nav -->
 
       <form class="search" action="{% url 'search' %}" method="get">
-        <input class="search__input" type="text" placeholder="Search">
+        <!-- {% csrf_token %} -->
+
+        {% for f in search_form %}
+          {{ f }}
+        {% endfor %}
       </form>
 
     </div><!-- /.header__nav -->

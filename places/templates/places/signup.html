@@ -1,28 +1,23 @@
-{% extends 'layouts/places/default.html' %}
+{% extends 'places/layouts/default.html' %}
 
-{% block body}
+{% block body %}
 
 <div class="bg bg--hikes">
   <div class="container container--sm container--secondary container--rounded">
-    <div class="page__title page__title--center">Signing up</div>
 
-    <form class="form form--auth" action="/" method="post">
+    <div class="page__title page__title--center">Sign up</div>
+
+    <form class="form form--auth" method="post">
+      {% csrf_token %}
       
-      <div class="form__group form__group--sm">
-        <input class="form__input" type="text" placeholder="Your name">
-      </div>
+      {% for f in form %}
 
-      <div class="form__group form__group--sm">
-          <input class="form__input" type="email" placeholder="Your e-mail">
-      </div>
+        <div class="form__group form__group--sm">
+          {{ f }}
+        </div>
+        <div class="form__errors">{{ f.errors }}</div>
 
-      <div class="form__group form__group--sm">
-          <input class="form__input" type="password" placeholder="Password">
-      </div>
-
-      <div class="form__group form__group--sm">
-        <input class="form__input" type="password" placeholder="Confirm password">
-      </div>
+      {% endfor %}
 
       <div class="form__footer form__footer--center">
         <button class="btn btn--primary btn--sm" type="submit">Sign up</button>
@@ -31,12 +26,16 @@
           <li>
             <a href="{% url 'signin' %}">Sign in</a>
           </li>
-          <li>
+          <!-- Return after reset function is made -->
+          <!-- <li>
             <a href="{% url 'reset' %}">Forgot password?</a>
-          </li>
+          </li> -->
         </ul>
+
       </div>
+
     </form>
+
   </div>
 </div>
 

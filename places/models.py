@@ -7,10 +7,13 @@ from django.utils.text import slugify
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Name')
     slug = models.SlugField(unique=True, max_length=100, verbose_name='Slug')
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super(Category, self).save(*args, **kwargs)
+    photo = models.ImageField(
+        upload_to='sightseeing_photos/categories/%Y/%m/%d/',
+        null=True,
+        default=None,
+        verbose_name='Photo'
+    )
+    description = models.TextField(blank=True, verbose_name='Description')
 
     def __str__(self):
         return self.name
@@ -36,7 +39,7 @@ class Place(models.Model):
     description = models.TextField(blank=True, verbose_name='Description')
     address = models.CharField(max_length=200, verbose_name='Address')
     photo = models.ImageField(
-        upload_to='sightseeing_photos/%Y/%m/%d/',
+        upload_to='sightseeing_photos/places/%Y/%m/%d/',
         verbose_name='Photo'
     )
     time_create = models.DateTimeField(

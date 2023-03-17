@@ -13,18 +13,18 @@
       </div>
 
       <div class="post__header post__header--preview">
-        <img class="post__preview" src="{% static 'places/images/cases/cases-1.jpg' %}" alt="">
-        <h1 class="post__title">Post title</h1>
+        <img class="post__preview" src="{{ place.photo.url }}" alt="">
+        <h1 class="post__title">{{ place.name }}</h1>
+        <span>{{ place.address }}</span>
       </div>
 
       <div class="post__content">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam id in harum possimus voluptatem dolore vitae assumenda ipsam deleniti. Placeat quaerat accusantium praesentium autem provident cum maxime amet quam numquam.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam id in harum possimus voluptatem dolore vitae assumenda ipsam deleniti. Placeat quaerat accusantium praesentium autem provident cum maxime amet quam numquam.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam id in harum possimus voluptatem dolore vitae assumenda ipsam deleniti. Placeat quaerat accusantium praesentium autem provident cum maxime amet quam numquam.</p>
-
+        {% autoescape off %}
+          {{ place.description }}
+        {% endautoescape %}
       </div><!-- /.post__content -->
 
-      <div class="related">
+      <!-- <div class="related">
         <h3 class="post__subtitle">Интересно почитать</h3>
 
         <ul class="related__list">
@@ -43,7 +43,7 @@
 
         </ul>
 
-      </div><!-- /.related -->
+      </div>/.related -->
 
     </div>
   </div>

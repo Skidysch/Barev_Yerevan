@@ -28,75 +28,38 @@
   <div class="container">
 
     <div class="container container--sm container--center">
-      <div class="cases__header">LET´S go</div>
-      <div class="cases__intro"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p></div>
+      <div class="cases__header">Categories</div>
+      <!-- <div class="cases__intro"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p></div> -->
     </div>
 
     <div class="cases__list">
 
-      <div class="cases__item">
+      {% for c in cats %}
+        <div class="cases__item">
 
-          <div class="cases__preview">
-            <a href="{% url 'post' %}">
-              <img class="cases__image" src="{% static 'places/images/cases/cases-1.jpg' %}" alt="">
-            </a>
-          </div>
-
-          <div class="cases__content">
-
-            <a class="cases__title" href="{% url 'post' %}">Lorem ipsum</a>
-
-            <div class="cases__text">
-              <p>Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
+            <div class="cases__preview">
+              {% if c.photo %}
+                <a href="{{ c.get_absolute_url }}">
+                  <img class="cases__image" src="{{ c.photo.url }}" alt="">
+                </a>
+              {% endif %}
             </div>
 
-          </div>
+            <div class="cases__content">
 
-      </div>
+              <a class="cases__title" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
 
-      <div class="cases__item">
+              <!-- <div class="cases__text">
+                <p>{{ c.description|truncatewords:10 }}</p>
+              </div> -->
 
-          <div class="cases__preview">
-            <a href="{% url 'post' %}">
-              <img class="cases__image" src="{% static 'places/images/cases/cases-2.jpg' %}" alt="">
-            </a>
-          </div>
-
-          <div class="cases__content">
-
-            <a class="cases__title" href="{% url 'post' %}">Lorem ipsum</a>
-
-            <div class="cases__text">
-              <p>Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
             </div>
-
-          </div>
-
-      </div>
-
-      <div class="cases__item">
-
-        <div class="cases__preview">
-          <a href="{% url 'post' %}">
-            <img class="cases__image" src="{% static 'places/images/cases/cases-3.jpg' %}" alt="">
-          </a>
-        </div>
-
-        <div class="cases__content">
-
-          <a class="cases__title" href="{% url 'post' %}">Lorem ipsum</a>
-
-          <div class="cases__text">
-            <p>Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
-          </div>
 
         </div>
 
-      </div>
+      {% endfor %}
 
     </div><!-- /.cases__list -->
-
-    <a href="#" class="btn">Show More</a>
 
   </div><!-- /.container-->
 
