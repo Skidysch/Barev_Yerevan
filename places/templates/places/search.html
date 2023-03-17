@@ -7,45 +7,51 @@
 <div class="bg bg--hikes">
   <div class="container container--rounded">
 
-    <section class="cases cases--category">
+    <section class="cases">
 
-      <div class="cases__header">Search results for {{ query }}</div>
-          <!-- <div class="cases__intro"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p></div> -->
-        
-    
-      <div class="cases__list">
-  
-        {% for p in places %}
-          <div class="cases__item">
-  
-              <div class="cases__preview">
-                {% if p.photo %}
-                  <a href="{{ p.get_absolute_url }}">
-                    <img class="cases__image" src="{{ p.photo.url }}" alt="">
-                  </a>
-                {% endif %}
-              </div>
-  
-              <div class="cases__content">
-  
-                <a class="cases__title" href="{{ p.get_absolute_url }}">{{ p.name }}</a>
-  
-                <div class="cases__text">
-                  {% autoescape off %}
-                    <p>{{ p.description|truncatewords:15 }}</p>
-                  {% endautoescape %}
+
+      {% if places %}
+        <div class="cases__header">Search results for `{{ query }}`</div>
+        <!-- <div class="cases__intro"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p></div> -->
+
+        <div class="cases__list">
+
+          {% for p in places %}
+            <div class="cases__item">
+
+                <div class="cases__preview">
+                  {% if p.photo %}
+                    <a href="{{ p.get_absolute_url }}">
+                      <img class="cases__image" src="{{ p.photo.url }}" alt="">
+                    </a>
+                  {% endif %}
                 </div>
-  
-              </div>
-  
-          </div>
-  
-        {% endfor %}
-  
-      </div><!-- /.cases__list -->
-    
-      
-    
+
+                <div class="cases__content">
+
+                  <a class="cases__title" href="{{ p.get_absolute_url }}">{{ p.name }}</a>
+
+                  <div class="cases__text">
+                    {% autoescape off %}
+                      <p>{{ p.description|truncatewords:15 }}</p>
+                    {% endautoescape %}
+                  </div>
+
+                </div>
+
+            </div>
+
+          {% endfor %}
+
+        </div><!-- /.cases__list -->
+
+      {% else %}
+        <div class="container container--sm container--primary container--rounded">
+          <div class="cases__header">No results for `{{ query }}`</div>
+        </div>
+
+      {% endif %}
+
     </section><!-- /.cases -->
   
   </div>
