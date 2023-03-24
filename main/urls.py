@@ -7,6 +7,7 @@ from main import settings
 urlpatterns = [
     path('', include('places.urls')),
     path('admin/', admin.site.urls),
+    path('auth/', include('authentication.urls')),
 ]
 
 if settings.DEBUG:
